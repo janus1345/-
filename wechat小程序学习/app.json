@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/index/index",
+    "pages/publish/publish"
+   
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#03bbd5",
+    "navigationBarTextStyle": "white"
+  }
+}

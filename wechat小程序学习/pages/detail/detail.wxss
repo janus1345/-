@@ -1,0 +1,33 @@
+/* pages/detail/detail.wxss */
+page{
+  background: #eee;
+}
+.row{
+  overflow: hidden;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  color: #777; 
+}
+.info{
+  margin-left:100px;
+  line-height: 30px; 
+}
+.submit-button{
+  margin: 10px 8px 0 8px;
+  background: #ff9700;
+  line-height: 38px;
+  border-radius: 6px;
+  text-align: center;
+  color: #fff;
+}
+.title{
+  padding-left: 10px;
+  width: 90px;
+  float: left;
+  line-height: 30px;
+}
+.info-input{
+  height: 50px;
+}
+
