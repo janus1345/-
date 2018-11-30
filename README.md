@@ -6,4 +6,4 @@
   * [脚手架学习](Vue基础使用/脚手架学习/)
 ## wechat小程序学习
 * [wechat小程序学习](wechat小程序学习/README.md)
-  * [萌宠交易平台](wechat小程序学习/wechat小程序学习/)
+  * [萌宠交易平台](wechat小程序学习/)
