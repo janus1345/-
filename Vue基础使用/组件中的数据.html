@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id='app'>
+    <my-header></my-header>
+    <my-header></my-header>
+
+</div>
+<script>
+// var data={
+//     count:0
+// };
+    var vm = new Vue({
+    
+        el: "#app",
+        // template:'<h1>app应用</h1>'
+        data:{
+            message:'hellp vue!',
+        },
+        components:{
+            'my-header':{
+                template:'<h2 @click="changeCount">标题{{count}}</h2>',
+                data:function(){
+                    return {
+                        count : 0,
+                    };
+                },
+                methods:{
+                    changeCount:function(){
+                        this.count++;
+                    }
+                }
+                }
+            }
+
+        })
+    // var myComponent = Vue.extend({
+    //     data:function(){
+    //         return {
+    //             message:'hello vue'
+    //         }
+    //     }
+    // })
+    // var vm = new myComponent({
+    //  el:'#app'
+    // })
+    
+   
+</script>
+    
+</body>
+</html>

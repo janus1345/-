@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子组件向父组件传值</title>
+    <script type="text/javascript" src='js/vue.js'></script>
+</head>
+<body>
+<div id='app'>
+<my-header :list="list"></my-header>
+    
+</div>
+<script>
+    var vm = new Vue({
+    
+        el: "#app",
+        data:{
+            list:['第三项','第四项','第五项']
+        },
+        components:{
+            'my-header':{
+                template:`<div>
+                <h2 ref='mytitle'>{{message}}</h2>
+                <ul>
+                    <li v-for="item in list">
+                    {{item}} 
+                    </li>
+                </ul>
+                <my-nav @changeEvents='getChildContent'  :list='list'></my-nav>
+                </div>`,
+            data:function(){
+                return {
+                    message:'hello myHeader',
+                    // list:['第一项','第二项','第三项']
+                }
+            },
+            props:['list'],
+            methods:{
+                getChildContent:function(str){
+                    this.$refs.mytitle.innerHTML = str
+
+                }
+
+            },
+            components:{
+                'my-nav':{
+                    template:`<ul>
+                        <li @click='getContent' v-for="item in list">{{item}}
+                        </li>
+                    </ul>`,
+                    props:['list'],
+                    methods:{
+                        getContent:function(ev){
+                            this.$emit('changeEvents',ev.target.innerHTML);
+                        }
+                    }
+                }
+            }
+            }
+        }
+    
+    })
+</script>
+    
+</body>
+</html>

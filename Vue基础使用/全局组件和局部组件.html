@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id="app">
+    <my-header></my-header>
+</div>
+<div id="app1">
+    <my-header></my-header>
+</div>    
+    <script >
+    Vue.component('my-header',{
+        template:'<h2>全局标题</h2>'
+    });
+        var vm = new Vue({
+            el: "#app",
+            
+            components:{
+                'my-header':{
+                    template:'<h2>局部标题</h2>'
+                }
+            }
+        
+        })
+         var vm = new Vue({
+         
+             el: "#app1"
+         
+         })
+    </script>
+</body>
+</html>

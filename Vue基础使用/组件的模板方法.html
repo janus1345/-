@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的模板方式</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id='app'>
+  <my-header></my-header>
+</div>
+<script>
+    var vm = new Vue({
+    
+        el: "#app",
+        components:{
+            'my-header':{
+                template:`<div>
+                <h2>{{message}}</h2>
+                <ul>
+                    <li>第一项
+                    </li>
+                </ul></div>`,
+                data:function(){
+                    return {
+                        message:'hello myHeader'
+                    }
+                }
+            }
+        }
+    
+    })
+</script>
+
+
+    
+</body>
+</html>

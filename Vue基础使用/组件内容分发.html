@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件内容分发</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id="app">
+    <my-header>
+        <!-- <my-title></my-title> -->
+        <button slot='left'><-</button>
+        <button slot='right'>-></button>
+    </my-header>
+
+</div>
+    <script>
+    var vm = new Vue({
+    
+        el: "#app",
+        components:{
+            'my-header':{
+                template:'<div><slot name="left"></slot>我是头部 <slot name="right"><button>+</button></slot></div>'
+            },
+            // 'my-title':{
+            //     template:'<div>我是标题</div>'
+            // }
+        }
+    
+    })
+        
+    </script>
+</body>
+</html>

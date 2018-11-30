@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件通信</title>
+    <script type="text/javascript" src='js/vue.js'></script>
+</head>
+<body>
+<div id='app'>
+<my-header :list="list"></my-header>
+    
+</div>
+<script>
+    var vm = new Vue({
+    
+        el: "#app",
+        data:{
+            list:['第三项','第四项','第五项']
+        },
+        components:{
+            'my-header':{
+                template:`<div>
+                <h2>{{message}}</h2>
+                <ul>
+                    <li v-for="item in list">
+                    {{item}} 
+                    </li>
+                </ul>
+                <my-nav :list='list'></my-nav>
+                </div>`,
+            data:function(){
+                return {
+                    message:'hello myHeader',
+                    // list:['第一项','第二项','第三项']
+                }
+            },
+            props:['list'],
+            components:{
+                'my-nav':{
+                    template:`<ul>
+                        <li v-for="item in list">{{item}}
+               </li>
+                    </ul>`,
+                    props:['list'],
+                }
+            }
+            }
+        }
+    
+    })
+</script>
+
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <br>
+
+    {{messageReverse}}
+
+    <input type="text" v-model='message' @click='changeBgColor' :title="message">
+
+</div>
+<script>
+   var vm = new Vue({
+    
+        el: "#app",
+        data:{
+            message:'hello vue',
+
+        },
+        computed:{
+            messageReverse: function(){
+                return this.message.split('').reverse().join('');
+            }
+        },
+        methods:{
+            changeBgColor:function(ev){
+                ev.target.style.background = 'red';
+            }
+        }
+    
+    });
+</script>
+    
+</body>
+</html>

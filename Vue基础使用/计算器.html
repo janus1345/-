@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id='app'>
+<div>{{count}}</div>
+<my-addbtn :count='count'></my-addbtn>
+<my-removebtn :count='count'></my-removebtn>
+    
+</div>
+
+<script>
+    var busVM = new Vue();
+    var vm = new Vue({
+    
+        el: "#app",
+        data:{
+            count:0
+        },
+        mounted:function(){
+            busVM.$on('changeEvents',function(num){
+                this.count = num;
+            }.bind(this));
+        },
+        components:{
+            'my-addbtn':{
+                template:'<button @click="setCount">+</button>',
+                props:['count'],
+                methods:{
+                    setCount:function(){
+                        busVM.$emit('changeEvents',this.count+1);
+
+                    }
+                }
+            },
+             'my-removebtn':{
+                template:'<button @click="setCount">-</button>',
+                props:['count'],
+                methods:{
+                    setCount:function(){
+                        busVM.$emit('changeEvents',this.count-1);
+
+                    }
+                }
+            },
+        }
+    
+    })
+</script>    
+</body>
+</html>

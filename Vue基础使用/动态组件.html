@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件</title>
+    <script src='js/vue.js'></script>
+</head>
+<body>
+<div id="app">
+<button @click='changeCompontent(1)'>第一项</button>
+<button @click='changeCompontent(2)'>第二项</button>
+<button @click='changeCompontent(3)'>第三项</button>
+<keep-alive>
+<compontent :is='nowHeader'></compontent>
+</keep-alive>
+</div>
+<script>
+    var vm = new Vue({
+    
+        el: "#app",
+        data:{
+            nowHeader:'my-header-1',
+        },
+        components:{
+            'my-header-1':{
+                template:'<div>组件1<input type="text"></div>'
+            },
+            'my-header-2':{
+                template:'<div>组件2<input type="text"></div>'
+            },
+            'my-header-3':{
+                template:'<div>组件3<input type="text"></div>'
+            }
+        },
+        methods:{
+            changeCompontent :function(index){
+                this.nowHeader = 'my-header-'+index;
+            }
+        }
+
+
+    
+    })
+
+</script>
+    
+</body>
+</html>
